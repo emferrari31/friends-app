@@ -1,0 +1,48 @@
+<% content_for :title, "Friends" %>
+<% if user_signed_in? %>
+<table class="table table-hover table-bordered table-striped">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Phone</th>
+      <th>Twitter</th>
+      <th colspan="1">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <div id="friends">
+      <% @friends.each do |friend| %>
+        <% if friend.user == current_user %>
+        <tr>
+          <td>
+          <%= link_to friend.first_name + ' ' + friend.last_name, friend %>
+      
+          </td>
+          <td><%= friend.email %></td>
+          <td><%= friend.phone %></td>
+          <td><%= friend.twitter %></td>
+          <td><%= button_to "Delete", friend, method: :delete, class:"btn btn-outline-danger btn-sm" %></td>
+        </tr>
+        <% end %>
+      <% end %>
+    </div>  
+  </tbody>
+</table>
+<%= link_to "New friend", new_friend_path, class:"btn btn-secondary" %>
+<% else %>
+
+
+<div class="jumbotron">
+  <h1 class="display-4"> Welcome to the Friends App! </h1> 
+  <p class="lead"><p>Welcome to Friend App - An application where you can keep a log of your close friends and their contact information.</p>
+  <p>Keep a log of all your friends contact information. Changed their number? No problem! .</p>
+  <hr class="my-4">
+  <p>What are you waiting for? </p>
+  <a class="btn btn-primary btn-lg" href="#" role="button">Get Started</a>
+</div>
+
+
+
+
+<% end %>
