@@ -14,7 +14,7 @@
     <% f.label :password %><br />
     <%= f.password_field :password, class: "form-control", placeholder: "Password", autocomplete: "current-password" %>
   </div>
-<br/> 
+  <br/> 
 
   <% if devise_mapping.rememberable? %>
     <div class="field form-check">
@@ -22,13 +22,12 @@
       <%= f.label :remember_me %>
     </div>
   <% end %>
-<br/>
-
+  <br/>
 
   <div class="actions">
     <%= f.submit "Log in", class: "btn btn-secondary" %>
   </div>
-<% end %>  </p>
+  <% end %>  </p>
     
-  </div>
+</div>
 </div>
